@@ -1,0 +1,67 @@
+/* SUO Selangor light theme. Loaded inside unchanged 4.3MB Spatial Analytics engine. */
+:root{
+ --bg:#f6f8fb;--shell:#ffffff;--panel:#ffffff;--panel2:#fff8e9;
+ --line:#e1e7ef;--line2:#d6dfe9;--text:#253347;--muted:#67788b;
+ --accent:#f1c343;--accent2:#ffdf83;--ok:#15986a;
+ --blue:#377dc2;--cyan:#4699c9;--red:#bf3040;--orange:#e69d34;
+ --shadow:0 9px 27px rgba(31,48,68,.065)
+}
+html,body{background:#f6f8fb;color:#263448}
+#homeScreen{background:radial-gradient(circle at 80% 10%,rgba(246,205,93,.2),transparent 32%),linear-gradient(180deg,#fff9ed,#f6f8fb)}
+.home-top,.topbar,.left,.right,.results{background:#fff;border-color:#e5eaf1}
+.home-top{box-shadow:0 2px 14px rgba(39,53,70,.035)}
+.home-brand h1,.brand h1,.topbar h2,.module-card h3,.side-card h3,.flow-title,.help-card h4{color:#28374b}
+.logo{background:linear-gradient(135deg,#f2c53d,#ffe49b);color:#922b3a}
+.home-brand p,.brand p,.hero p,.module-card p,.status-row,.result-text,.home-history{color:#627588}
+.hero h2{color:#263549;font-size:clamp(28px,3.3vw,42px)}
+.eyebrow,.section-title,.group-title{color:#9a6b24}
+.module-card,.side-card,.mini-card,.kpi,.ai-box,.ai-rec,.flow-card,.help-card,.history-item,.modal{background:#fff;border:1px solid #e1e8ef;color:#2b3b4e;box-shadow:0 6px 22px rgba(44,60,80,.055)}
+.module-card{border-radius:16px;min-height:164px}
+.module-card.ready{border-color:#b4d9c7}
+.module-card h3{font-size:16px}.module-card p{font-size:12px;line-height:1.7}
+.badge{background:#fff2d0;color:#886019;font-size:10px}.badge.ok{background:#e6f7ee;color:#087c54}.badge.req{background:#fff1c9;color:#936018}
+.launch,.run{background:linear-gradient(110deg,#efbd3d,#ffe18b);color:#332c1b;font-size:12px;box-shadow:0 3px 12px rgba(198,137,28,.13)}
+.launch.secondary,.home-top-actions button,.ghost,.top-actions button,.left-foot button,.actions button,.modal-close{background:#fffaf0;color:#415269;border-color:#e2d7bc;font-size:11px}
+.side-card h3,.help-card h4{font-size:13px}
+.status-row,.home-history{font-size:11px}.status-row{border-color:#edf0f4}.status-row span:last-child{color:#728195}.status-row .ok{color:#11805e!important}
+#app{background:#f6f8fb}
+.left{border-right:1px solid #e2e8ef}
+.brand,.left-tabs,.left-foot,.result-tabs{border-color:#e6ebf1}
+.left-tab{background:#fff;color:#68798b;font-size:11px}
+.left-tab.active,.result-tab.active{background:#fff3ce;color:#956321;border-color:#f1c343}
+.left-body{background:#fff}
+.search,.param select,.param input{background:#fafbfc;border:1px solid #dce4ed;color:#26374d;font-size:12px}
+.search::placeholder{color:#8895a4}
+.tool{color:#3a4d61;border-color:transparent}.tool:hover{background:#fffaf0}.tool.active{background:#fff2d2;border-color:#eaca83}
+.tool b{font-size:12px}.tool small{font-size:10px;color:#7b8999}
+.tool-icon{background:#f7f2e7;color:#ac7e2b}.tool.active .tool-icon{background:#f0c346;color:#684a20}
+.mini-card,.history-item{background:#fcfdff}.mini-card h4{font-size:12px}
+.data-row,.quality-row{border-color:#e9eef3;color:#53667a;font-size:11px}.data-row em{color:#698096}
+.data-row em.ok,.chip em{color:#07895d}
+.upload,.left-foot button{background:#fff8e8;border-color:#e8d6a8;color:#926324;font-size:11px}
+.history-item b{font-size:12px}.history-item small{font-size:10px}
+.left-foot{color:#7b8a9a;font-size:10px}
+.center{background:#f8fafb}.topbar{border-bottom:1px solid #e1e8ef}.topbar h2{font-size:18px}.topbar p{color:#697c8d;font-size:11px}
+.engine{color:#62798c;font-size:11px}
+.map-tools button{background:#fff;color:#394b60;border-color:#d6e1ec}
+.map-tools button.active{background:#fff3d4;color:#78561d}
+.map-badge,.coord{background:rgba(255,255,255,.93);color:#475e73;border-color:#dce5ed;font-size:10px}
+.results{border-color:#e0e7ef}.result-tab{color:#687c8d;font-size:11px}
+.result-text,.ai-box,.ai-rec,.ai-rec ul{color:#40556b;font-size:11px}
+.kpi{background:#fbfcfe}.kpi span{color:#78889b;font-size:10px}.kpi strong{color:#283b4f}
+.chart-col,.legend{color:#687d8f;font-size:10px}
+.ai-box{border-left:3px solid #f1c443}
+.right{border-left:1px solid #e2e8ef}
+.flow-title{font-size:12px}.flow-num{background:#fff1cf;color:#945c1a;font-size:11px}.flow-num.done{background:#e7f8ee;color:#11835a}.flow-num.running{background:#fff0ce;color:#98651a}
+.chip,.help-chip,.workflow-node,.legend-item-dyn{background:#fafbfd;border:1px solid #e2e8ef;color:#475a70;font-size:11px}
+.param label{color:#65778b;font-size:11px}.param select,.param input{border-radius:8px}
+.proc-status{color:#697c8c;font-size:11px}.proc-log{color:#74889a;font-size:10px}.proc-log .done{color:#12865c}
+.progress{background:#edf1f5;border-color:#e1e7ee}
+.actions button{font-size:10px}.actions button:hover,.top-actions button:hover{background:#fff1cf}
+.legend-note{color:#718296;font-size:10px}
+.help-card p,.help-chip,.workflow-diagram{color:#5e7184;font-size:11px}
+.info-btn{background:#fff8ea;border-color:#e7d29f;color:#956826}
+.modal-back{background:rgba(29,44,60,.48)}
+.modal{background:#fff}.modal h4{color:#a17327}.modal p,.modal li,.modal td{color:#506477;font-size:11px}
+#toast{background:#fff;color:#354960;border:1px solid #dce6ef;box-shadow:0 8px 24px rgba(0,0,0,.12);font-size:11px}
+@media(max-width:1050px){#app{grid-template-columns:1fr}.left,.right{background:#fff}.home-grid{grid-template-columns:1fr}}
