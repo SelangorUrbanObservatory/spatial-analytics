@@ -238,7 +238,7 @@ document.getElementById('toggleResultBtn').addEventListener('click',e=>{
 document.getElementById('exportGeoJSONBtn').addEventListener('click',()=>currentResult&&ExportManager.downloadGeoJSON(`SUO_${currentResult.type}_result.geojson`,currentResult.geojson));
 document.getElementById('exportReportBtn').addEventListener('click',()=>currentResult&&ExportManager.downloadReport(currentResult));
 document.getElementById('view3DBtn').addEventListener('click',()=>toast('3D GeoPortal integration endpoint will be connected in the next phase.'));
-document.getElementById('openGeoportalBtn').addEventListener('click',()=>toast('Set the production 3D GeoPortal URL in app.js.'));
+document.getElementById('openGeoportalBtn')?.addEventListener('click',()=>window.open('https://selangorurbanobservatory.github.io/3D-Geoportal/','_blank','noopener,noreferrer'));
 document.getElementById('clearHistoryBtn').addEventListener('click',()=>{historyManager.clear();renderHistory();toast('History cleared.');});
 
 document.getElementById('geojsonUpload').addEventListener('change',e=>{
