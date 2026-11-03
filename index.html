@@ -1,63 +1,36 @@
 <!doctype html>
-<html lang="ms"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#fff9e8">
-<title>Spatial Analytics | Selangor Urban Observatory</title>
-<meta name="description" content="Workspace Spatial Analytics SUO untuk analisis kepadatan penduduk, akses kemudahan dan jurang perkhidmatan bandar.">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="./css/styles.css?v=20261103">
-</head><body>
-<div class="app-shell">
-  <aside class="sidebar" aria-label="Modul analisis dan data">
-    <a class="brand" href="https://selangorurbanobservatory.github.io/SUO.Portal/">
-      <div class="logo">SUO</div>
-      <div><h1>SELANGOR URBAN<br>OBSERVATORY</h1><small>Urban Intelligence &amp; Analytics</small></div>
-    </a>
-    <div class="sidebar-preamble">WORKSPACE</div>
-    <h2 class="sidebar-headline">Spatial Analytics</h2>
-    <p class="sidebar-description">Analisis spatial untuk menyokong perancangan bandar berasaskan bukti.</p>
-    <div class="demo-note">DATA DEMONSTRASI <span>Data penduduk dan kemudahan yang dipaparkan adalah simulasi, bukan statistik rasmi SUO.</span></div>
-    <div class="section-title">MODUL ANALISIS</div>
-    <input id="analysisSearch" class="module-search" type="search" placeholder="Cari modul analisis…" aria-label="Cari modul analisis">
-    <div class="analysis-list">
-      <button type="button" class="analysis-item active" data-analysis="population-density"><span class="analysis-icon">▦</span><span><b>Population Density</b><small>Analisis kepadatan penduduk</small></span></button>
-      <button type="button" class="analysis-item" data-analysis="facility-accessibility"><span class="analysis-icon">◎</span><span><b>Facility Accessibility</b><small>Liputan kemudahan awam</small></span></button>
-      <button type="button" class="analysis-item" data-analysis="urban-service-gap"><span class="analysis-icon">◈</span><span><b>Urban Service Gap</b><small>Jurang perkhidmatan bandar</small></span></button>
-    </div>
-    <div class="section-title">DATA &amp; SEJARAH</div>
-    <div class="sidebar-tabs"><button class="nav-tab active" type="button" data-lefttab="layers">Sumber</button><button class="nav-tab" type="button" data-lefttab="history">Sejarah</button></div>
-    <div class="left-view active" id="left-layers"><div id="layerList" class="source-list"></div><label for="geojsonUpload" class="upload">+ Import GeoJSON</label><input id="geojsonUpload" type="file" accept=".json,.geojson,application/geo+json" hidden></div>
-    <div class="left-view" id="left-history"><div id="historyList"></div><button type="button" class="secondary" id="clearHistoryBtn">Kosongkan sejarah</button></div>
-    <a class="sidebar-back" href="https://selangorurbanobservatory.github.io/SUO.Portal/applications.html">← Kembali ke Aplikasi SUO</a>
-  </aside>
-  <main class="workspace">
-    <header class="topbar">
-      <div><p class="overline">SELANGOR URBAN OBSERVATORY / SPATIAL ANALYTICS</p><h2 id="analysisTitle">Population Density</h2><p id="analysisSubtitle">Analyse population concentration using spatial grid units.</p></div>
-      <div class="topbar-actions"><span class="status"><span></span>Workspace aktif</span><button class="top-action" id="resetWorkspaceBtn" type="button">Reset</button><a class="top-action primary-action" href="https://selangorurbanobservatory.github.io/3D-Geoportal/" target="_blank" rel="noopener">3D GeoPortal ↗</a></div>
-    </header>
-    <div class="content-grid">
-      <section class="map-panel" aria-label="Peta analisis spatial"><div id="map"></div><div class="map-tag"><span class="map-tag-dot"></span><span id="mapStatusText">Sedia untuk analisis</span> · Demo data</div>
-        <div class="map-tools"><button id="homeMapBtn" type="button">⌂ <span>Pusat Peta</span></button><button id="togglePopulationBtn" class="active" type="button">◉ <span>Penduduk</span></button><button id="toggleResultBtn" type="button">▦ <span>Hasil</span></button></div>
-      </section>
-      <aside class="control-panel" aria-label="Tetapan dan hasil analisis">
-        <div class="panel-card run-panel"><div class="panel-head"><span class="step-number">01</span><h3>Input Data</h3></div><div id="inputDataContent"></div><div class="panel-head mt"><span class="step-number">02</span><h3>Parameter Analisis</h3></div><div id="parameterContent" class="controls"></div><button class="run" id="runAnalysisBtn" type="button">▶ Jalankan Analisis</button></div>
-        <div class="panel-card"><div class="panel-head"><span class="step-number">03</span><h3>Proses Analisis</h3></div><div class="progress-track"><div id="progressBar"></div></div><div id="processStatus" class="process-status">Sedia untuk dijalankan.</div><div id="processLog" class="process-log"></div></div>
-        <div class="panel-card results-card"><div class="panel-head"><span class="step-number">04</span><h3>Hasil &amp; Intelligence</h3></div>
-          <div class="kpi-grid"><div class="kpi"><span>Jumlah Penduduk</span><strong id="kpiPopulation">—</strong></div><div class="kpi"><span>Liputan</span><strong id="kpiCoverage">—</strong></div><div class="kpi"><span>Unit Kritikal</span><strong id="kpiCritical">—</strong></div><div class="kpi"><span>Unit Analisis</span><strong id="kpiUnits">—</strong></div></div>
-          <div class="execution-time">Masa proses: <b id="kpiExecution">—</b></div>
-          <div class="result-tabs"><button class="result-tab active" type="button" data-resulttab="statistics">Statistik</button><button class="result-tab" type="button" data-resulttab="chart">Carta</button><button class="result-tab" type="button" data-resulttab="insight">Insight</button><button class="result-tab" type="button" data-resulttab="metadata">Metadata</button></div>
-          <div class="result-view active" id="result-statistics"><div id="statisticsContent" class="result-copy">Jalankan analisis untuk melihat statistik.</div></div>
-          <div class="result-view" id="result-chart"><div id="barChart" class="bar-chart"></div></div>
-          <div class="result-view" id="result-insight"><div id="aiInsight" class="result-copy">Jalankan analisis untuk melihat interpretasi.</div></div>
-          <div class="result-view" id="result-metadata"><div id="metadataContent" class="result-copy">Tiada metadata lagi.</div></div>
-          <div class="result-actions"><button id="exportGeoJSONBtn" type="button" disabled>Eksport GeoJSON</button><button id="exportReportBtn" type="button" disabled>Laporan</button><button id="view3DBtn" type="button" disabled>3D View</button><button id="clearResultBtn" type="button">Kosongkan Hasil</button></div>
-        </div>
-      </aside>
-    </div>
-  </main>
-</div>
-<div id="toast" role="status" aria-live="polite"></div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
-<script type="module" src="./js/app.js?v=20261103"></script>
+<html lang="ms"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f8fb"><title>Spatial Analytics | Selangor Urban Observatory</title>
+<meta name="description" content="SUO Spatial Analytics workspace — tema cerah Selangor, enjin analisis asal dikekalkan.">
+<style>
+*{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden;background:#f6f8fb;font-family:Inter,Segoe UI,Arial,sans-serif}
+#engine{display:block;width:100%;height:100%;height:100dvh;border:0;opacity:0;transition:opacity .18s}
+#engine.ready{opacity:1}
+#loading{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#536172;font-size:14px;pointer-events:none}
+#loading strong{font-size:17px;color:#293549}
+#loading:before{content:"SUO";background:linear-gradient(135deg,#edbe3e,#ffe39a);color:#982c38;padding:17px 15px;border-radius:16px;font-weight:900;letter-spacing:-.06em}
+#loading.hidden{display:none}
+</style></head>
+<body>
+<div id="loading" role="status" aria-live="polite"><strong>Spatial Analytics SUO</strong><span>Memuatkan workspace analisis...</span></div>
+<iframe id="engine" src="./engine.html" title="SUO Spatial Analytics Engine" allow="fullscreen"></iframe>
+<script>
+(function(){
+  const frame=document.getElementById('engine'), loading=document.getElementById('loading');
+  let shown=false;
+  const reveal=function(){if(shown)return;shown=true;frame.classList.add('ready');loading.classList.add('hidden')};
+  frame.addEventListener('load',function(){
+    try{
+      const doc=frame.contentDocument;
+      if(!doc||!doc.head){reveal();return}
+      const sheet=doc.createElement('link');
+      sheet.rel='stylesheet';sheet.href='./css/suo-theme.css?v=20261103';
+      sheet.onload=reveal;sheet.onerror=reveal;
+      doc.head.appendChild(sheet);
+      frame.contentWindow.addEventListener('beforeunload',function(){shown=false;frame.classList.remove('ready');loading.classList.remove('hidden')},{once:true});
+    }catch(error){console.warn('Theme style unavailable:',error);reveal()}
+  });
+  window.setTimeout(reveal,9000);
+})();
+</script>
 </body></html>
